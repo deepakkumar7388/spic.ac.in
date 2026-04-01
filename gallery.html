@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Sardar Patel Inter College</title>
+    <link rel="icon" type="image/x-icon" sizes="512x512" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gallery-gradient-1: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gallery-gradient-2: linear-gradient(135deg, #FF6B6B, #FFD93D);
+            --gallery-gradient-3: linear-gradient(135deg, #4E65FF, #92EFFD);
+        }
+
+        .gallery-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.03) 0%, rgba(236, 72, 153, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ambient floating shapes */
+        .gallery-section::before,
+        .gallery-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+            animation: floatAmbient 10s infinite alternate ease-in-out;
+        }
+
+        .gallery-section::before {
+            top: -50px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(236, 72, 153, 0.3);
+        }
+
+        .gallery-section::after {
+            bottom: -50px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            background: rgba(79, 70, 229, 0.3);
+            animation-delay: -5s;
+        }
+
+        @keyframes floatAmbient {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                transform: translateY(30px) scale(1.1);
+            }
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--primary-dark);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gallery-gradient-1);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: var(--bg-white);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.3);
+            border-color: transparent;
+        }
+
+        .filter-btn.active::before,
+        .filter-btn:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            background: var(--bg-white);
+            padding: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInScale 0.6s ease forwards;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 3px;
+            background: var(--gallery-gradient-1);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2), 0 15px 30px rgba(236, 72, 153, 0.2);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(-1deg);
+            filter: saturate(1.2) brightness(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            height: 50%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0) 100%);
+            border-radius: 0 0 12px 12px;
+            color: var(--bg-white);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-caption {
+            font-size: 18px;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transform: translateY(10px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Colorful Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+            animation: lightBoxFadeIn 0.3s ease forwards;
+        }
+
+        @keyframes lightBoxFadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .lightbox-content {
+            max-width: 900px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(236, 72, 153, 0.3), 0 0 100px rgba(79, 70, 229, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -50px;
+            right: -20px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .close-lightbox:hover {
+            color: var(--secondary);
+            transform: scale(1.2) rotate(90deg);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--gallery-gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="site-header" class="site-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="SPIC Logo">
+                        <div class="school-name">
+                            <h1 id="school-title">SARDAR PATEL INTER COLLEGE</h1>
+                            <p id="school-address">Sikaron Koraon, Prayagraj 212306</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 011-12345678</p>
+                        <p><i class="fas fa-envelope"></i> info@gurukulschool.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 150px 0 80px; text-align: center; border-radius: 0 0 40px 40px;">
+        <div class="container">
+            <h1 style="font-size: 48px; margin-bottom: 15px;">Photo Gallery</h1>
+            <p>Home / Gallery</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+                <button class="filter-btn" onclick="filterGallery('campus')">Campus</button>
+                <button class="filter-btn" onclick="filterGallery('events')">Events</button>
+                <button class="filter-btn" onclick="filterGallery('sports')">Sports</button>
+                <button class="filter-btn" onclick="filterGallery('cultural')">Cultural</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Campus Photos -->
+                <div class="gallery-item" data-category="campus"
+                    onclick="openLightbox('images/schoolbuilding.png', 'School Building - Main Block')">
+                    <img src="images/schoolbuilding.png" alt="School Building">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">School Building - Main Block</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campus"
+                    onclick="openLightbox('images/library.png', 'Library')">
+                    <img src="images/library.png" alt="Library">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">School Library</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campus"
+                    onclick="openLightbox('images/computerLab.png', 'Computer Lab')">
+                    <img src="images/computerLab.png" alt="Computer Lab">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Computer Lab</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campus"
+                    onclick="openLightbox('images/scienceLab.png', 'Science Lab')">
+                    <img src="images/scienceLab.png" alt="Science Lab">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Science Laboratory</span>
+                    </div>
+                </div>
+
+                <!-- Events Photos -->
+                <div class="gallery-item" data-category="events"
+                    onclick="openLightbox('images/anualDay.png', 'Annual Day 2024')">
+                    <img src="images/anualDay.png" alt="Annual Day">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Annual Day 2024</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events"
+                    onclick="openLightbox('images/independence.png', 'Independence Day Celebration')">
+                    <img src="images/independence.png" alt="Independence Day">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Independence Day</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events"
+                    onclick="openLightbox('images/teacher\'sDay.png', 'Teacher\'s Day')">
+                    <img src="images/teacher'sDay.png" alt="Teacher's Day">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Teacher's Day 2024</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events"
+                    onclick="openLightbox('images/republicDay.png', 'Republic Day Parade')">
+                    <img src="images/republicDay.png" alt="Republic Day">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Republic Day 2024</span>
+                    </div>
+                </div>
+
+                <!-- Sports Photos -->
+                <div class="gallery-item" data-category="sports"
+                    onclick="openLightbox('images/sport\'sDay.png', 'Sports Day - Running Race')">
+                    <img src="images/sport'sDay.png" alt="Sports Day">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Annual Sports Day</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="sports"
+                    onclick="openLightbox('images/cricket.png', 'Cricket Match')">
+                    <img src="images/cricket.png" alt="Cricket">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Inter-School Cricket</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="sports"
+                    onclick="openLightbox('images/yogaDay.png', 'Yoga Day')">
+                    <img src="images/yogaDay.png" alt="Yoga">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">International Yoga Day</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="sports"
+                    onclick="openLightbox('images/scout&Guide.png', 'Scout & Guide')">
+                    <img src="images/scout&Guide.png" alt="Scout & Guide">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Scout & Guide</span>
+                    </div>
+                </div>
+
+                <!-- Cultural Photos -->
+                <div class="gallery-item" data-category="cultural"
+                    onclick="openLightbox('images/diwali.png', 'Diwali Celebration')">
+                    <img src="images/diwali.png" alt="Diwali">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Diwali Celebration</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cultural"
+                    onclick="openLightbox('images/holi.png', 'Holi Celebration')">
+                    <img src="images/holi.png" alt="Holi">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Holi Celebration</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cultural"
+                    onclick="openLightbox('images/dance.png', 'Dance Performance')">
+                    <img src="images/dance.png" alt="Dance">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Cultural Dance</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cultural"
+                    onclick="openLightbox('images/music.png', 'Music Competition')">
+                    <img src="images/music.png" alt="Music">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Music Competition</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content">
+            <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Sardar Patel Inter College</h4>
+                    <p>Sikaron Koraon,<br>Prayagraj 212306</p>
+                    <p><i class="fas fa-phone"></i> 011-12345678</p>
+                    <p><i class="fas fa-envelope"></i> info@gurukulschool.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sardar Patel Inter College. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterGallery(category) {
+            var items = document.getElementsByClassName('gallery-item');
+            var buttons = document.getElementsByClassName('filter-btn');
+
+            // Update active button
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            event.target.classList.add('active');
+
+            // Filter items
+            for (var i = 0; i < items.length; i++) {
+                if (category === 'all' || items[i].getAttribute('data-category') === category) {
+                    items[i].style.display = 'block';
+                } else {
+                    items[i].style.display = 'none';
+                }
+            }
+        }
+
+        function openLightbox(imgSrc, caption) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightboxImg');
+            var lightboxCaption = document.getElementById('lightboxCaption');
+
+            lightboxImg.src = imgSrc;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Close lightbox with escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

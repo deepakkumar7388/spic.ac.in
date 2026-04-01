@@ -1,0 +1,37 @@
+school-website/
+│
+├── index.html
+├── about.html
+├── academics.html
+├── admissions.html
+├── gallery.html
+├── contact.html
+├── style.css
+├── script.js
+│
+└── images/
+    ├── logo.png
+    ├── school1.jpg
+    ├── school2.jpg
+    ├── principal.jpg
+    ├── teacher1.jpg
+    ├── teacher2.jpg
+    ├── teacher3.jpg
+    ├── teacher4.jpg
+    ├── campus1.jpg
+    ├── campus2.jpg
+    ├── campus3.jpg
+    ├── campus4.jpg
+    ├── event1.jpg
+    ├── event2.jpg
+    ├── event3.jpg
+    ├── event4.jpg
+    ├── sports1.jpg
+    ├── sports2.jpg
+    ├── sports3.jpg
+    ├── sports4.jpg
+    ├── cultural1.jpg
+    ├── cultural2.jpg
+    ├── cultural3.jpg
+    ├── cultural4.jpg
+    └── placeholder.jpg

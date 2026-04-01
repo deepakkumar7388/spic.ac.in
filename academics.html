@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Sardar Patel Inter College</title>
+    <link rel="icon" type="image/x-icon" sizes="512x512" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Academics Page Specific Styles */
+        .academics-section {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .program-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+            border-radius: var(--radius-fluid);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(79, 70, 229, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(79, 70, 229, 0.15);
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+
+        .program-card h3 {
+            color: var(--primary);
+            border-bottom: 3px dashed rgba(236, 72, 153, 0.3);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-weight: 800;
+            display: inline-block;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .subject-list {
+            list-style: none;
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .subject-list:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+
+        .subject-list h4 {
+            color: var(--bg-white);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        .subject-list li {
+            padding: 12px 15px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .subject-list li:last-child {
+            border-bottom: none;
+        }
+
+        .subject-list li:hover {
+            background: rgba(79, 70, 229, 0.05);
+            padding-left: 20px;
+            border-radius: 8px;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .subject-list li:before {
+            content: "✓";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: rgba(236, 72, 153, 0.1);
+            color: var(--secondary);
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        .timetable {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .timetable th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-white);
+            padding: 18px 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 15px;
+        }
+
+        .timetable td {
+            padding: 18px 20px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .timetable tr:last-child td {
+            border-bottom: none;
+        }
+
+        .timetable tr {
+            transition: var(--transition);
+        }
+
+        .timetable tr:hover td {
+            background: rgba(79, 70, 229, 0.05);
+            color: var(--primary-dark);
+        }
+
+        .curriculum-tabs {
+            display: flex;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 14px 34px;
+            background: rgba(79, 70, 229, 0.1);
+            /* Attractive soft primary color highlight */
+            color: var(--primary);
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 800;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.1);
+            /* Tinted shadow */
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-white);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+            /* Strong highlight shadow */
+            transform: translateY(-3px);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(79, 70, 229, 0.15);
+            color: var(--primary);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.2);
+            /* Hover shadow */
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8)), linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: padding-box, border-box;
+            border: 4px solid transparent;
+            border-radius: var(--radius-fluid);
+            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.1), 0 10px 20px rgba(236, 72, 153, 0.05);
+            animation: fadeInTab 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="site-header" class="site-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="SPIC Logo">
+                        <div class="school-name">
+                            <h1 id="school-title">SARDAR PATEL INTER COLLEGE</h1>
+                            <p id="school-address">Sikaron Koraon, Prayagraj 212306</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 011-12345678</p>
+                        <p><i class="fas fa-envelope"></i> info@spic.ac.in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html" class="active">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 150px 0 80px; text-align: center; border-radius: 0 0 40px 40px;">
+        <div class="container">
+            <h1 style="font-size: 48px; margin-bottom: 15px;">Academics</h1>
+            <p>Home / Academics</p>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="academics-section">
+        <div class="container">
+            <h2 class="section-title">Our Curriculum</h2>
+
+            <div class="curriculum-tabs">
+                <button class="tab-btn active" onclick="showTab('middle')">Middle (6th-8th)</button>
+                <button class="tab-btn" onclick="showTab('secondary')">High School (9th-10th)</button>
+                <button class="tab-btn" onclick="showTab('senior')">Inter College (11th-12th)</button>
+            </div>
+
+            <div id="middle" class="tab-content active">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-weight: 800;">Middle School (Class 6 - 8)
+                </h3>
+                <div class="program-grid">
+                    <div class="subject-list">
+                        <h4>Core Subjects</h4>
+                        <ul>
+                            <li>English</li>
+                            <li>Mathematics</li>
+                            <li>Science</li>
+                            <li>Social Science</li>
+                            <li>Hindi/Sanskrit</li>
+                        </ul>
+                    </div>
+                    <div class="subject-list">
+                        <h4>Additional Subjects</h4>
+                        <ul>
+                            <li>Computer Science</li>
+                            <li>General Knowledge</li>
+                            <li>Value Education</li>
+                            <li>Physical Education</li>
+                            <li>Art Education</li>
+                        </ul>
+                    </div>
+                    <div class="subject-list">
+                        <h4>Assessment</h4>
+                        <ul>
+                            <li>Unit Tests (4 per year)</li>
+                            <li>Half-Yearly Exam</li>
+                            <li>Annual Exam</li>
+                            <li>Project Work</li>
+                            <li>Practical Assessment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="secondary" class="tab-content">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-weight: 800;">High School (Class 9 -
+                    10) - CBSE</h3>
+                <div class="program-grid">
+                    <div class="subject-list">
+                        <h4>Compulsory Subjects</h4>
+                        <ul>
+                            <li>English (Language & Literature)</li>
+                            <li>Mathematics (Standard/Basic)</li>
+                            <li>Science (Physics, Chemistry, Biology)</li>
+                            <li>Social Science (History, Geography, Civics, Economics)</li>
+                            <li>Second Language (Hindi/Sanskrit)</li>
+                        </ul>
+                    </div>
+                    <div class="subject-list">
+                        <h4>Optional Subjects</h4>
+                        <ul>
+                            <li>Computer Applications</li>
+                            <li>Painting</li>
+                            <li>Physical Education</li>
+                            <li>Home Science</li>
+                            <li>French</li>
+                        </ul>
+                    </div>
+                    <div class="subject-list">
+                        <h4>Exam Pattern</h4>
+                        <ul>
+                            <li>Periodic Tests - 10 marks</li>
+                            <li>Half Yearly - 40 marks</li>
+                            <li>Annual Exam - 80 marks</li>
+                            <li>Internal Assessment - 20 marks</li>
+                            <li>Board Exam (Class 10) - 100 marks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="senior" class="tab-content">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-weight: 800;">Inter College (Class 11 -
+                    12) - CBSE</h3>
+
+                <div style="margin-bottom: 30px;">
+                    <h4 style="color: var(--primary); margin: 20px 0; font-weight: 800;">Science Stream</h4>
+                    <div class="program-grid">
+                        <div class="subject-list">
+                            <h5>PCM</h5>
+                            <ul>
+                                <li>Physics</li>
+                                <li>Chemistry</li>
+                                <li>Mathematics</li>
+                                <li>English Core</li>
+                                <li>Physical Education/CS</li>
+                            </ul>
+                        </div>
+                        <div class="subject-list">
+                            <h5>PCB</h5>
+                            <ul>
+                                <li>Physics</li>
+                                <li>Chemistry</li>
+                                <li>Biology</li>
+                                <li>English Core</li>
+                                <li>Biotechnology/PE</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <h4 style="color: var(--primary); margin: 20px 0; font-weight: 800;">Commerce Stream</h4>
+                    <div class="program-grid">
+                        <div class="subject-list">
+                            <ul>
+                                <li>Accountancy</li>
+                                <li>Business Studies</li>
+                                <li>Economics</li>
+                                <li>English Core</li>
+                                <li>Mathematics/IP</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="color: var(--primary); margin: 20px 0; font-weight: 800;">Humanities Stream</h4>
+                    <div class="program-grid">
+                        <div class="subject-list">
+                            <ul>
+                                <li>History</li>
+                                <li>Political Science</li>
+                                <li>Geography</li>
+                                <li>English Core</li>
+                                <li>Psychology/Sociology</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time Table Section -->
+    <section class="academics-section" style="background: #f5f5f5;">
+        <div class="container">
+            <h2 class="section-title">School Timings</h2>
+
+            <table class="timetable">
+                <tr>
+                    <th>Class</th>
+                    <th>Timing</th>
+                    <th>Lunch Break</th>
+                </tr>
+                <tr>
+                    <td>Class 6 - 8</td>
+                    <td>8:00 AM - 2:30 PM</td>
+                    <td>11:30 AM - 12:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Class 9 - 12</td>
+                    <td>8:00 AM - 3:00 PM</td>
+                    <td>12:00 PM - 12:30 PM</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Academic Calendar -->
+    <section class="academics-section">
+        <div class="container">
+            <h2 class="section-title">Academic Calendar</h2>
+
+            <div class="program-card">
+                <h3>Term 1 (April - September)</h3>
+                <ul class="subject-list">
+                    <li>Session Begins: 1st April </li>
+                    <li>Unit Test 1: 01-20 May </li>
+                    <li>Summer Break: 20th May - 30th June </li>
+                    <li>Unit Test 2: 10-15 August </li>
+                    <li>Half Yearly Exams: 15-25 September </li>
+                </ul>
+            </div>
+            <div class="program-card">
+                <h3>Term 2 (October - March)</h3>
+                <ul class="subject-list">
+                    <li>Winter Break: 25th December - 5th January</li>
+                    <li>Unit Test 3: 15-20 January </li>
+                    <li>Pre-Board (Class 10 & 12): 1-30 January</li>
+                    <li>Annual Exams: 20 January - 10 February</li>
+                    <li>Result Declaration: 15 February</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Sardar Patel Inter College</h4>
+                    <p>Sikaron Koraon,<br>Prayagraj 212306</p>
+                    <p><i class="fas fa-phone"></i> 011-12345678</p>
+                    <p><i class="fas fa-envelope"></i> info@spic.ac.in</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Sardar Patel Inter College. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            var tabs = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+
+            // Remove active class from all buttons
+            var buttons = document.getElementsByClassName('tab-btn');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

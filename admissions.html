@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Sardar Patel Inter College</title>
+    <link rel="icon" type="image/x-icon" sizes="512x512" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .admission-section {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4f46e5, #00d2ff, #f9a826);
+            z-index: 0;
+            border-radius: 4px;
+            opacity: 0.3;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-bottom: 5px solid transparent;
+        }
+
+        .step:nth-child(1) {
+            border-bottom-color: #ff6b6b;
+        }
+
+        .step:nth-child(2) {
+            border-bottom-color: #4f46e5;
+        }
+
+        .step:nth-child(3) {
+            border-bottom-color: #00cae3;
+        }
+
+        .step:nth-child(4) {
+            border-bottom-color: #f9a826;
+        }
+
+        .step:nth-child(5) {
+            border-bottom-color: #ec4899;
+        }
+
+        .step:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 6px solid white;
+        }
+
+        .step:nth-child(1) .step-number {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: #e63946;
+        }
+
+        .step:nth-child(2) .step-number {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            color: #1d3557;
+        }
+
+        .step:nth-child(3) .step-number {
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            color: #0077b6;
+        }
+
+        .step:nth-child(4) .step-number {
+            background: #fff3e0;
+            color: #f4a261;
+            border-color: #f9a826;
+        }
+
+        .step:nth-child(5) .step-number {
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            color: #d90429;
+        }
+
+        .step:hover .step-number {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .step h3 {
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-weight: 800;
+            font-size: 22px;
+        }
+
+        .step p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        .fee-table th {
+            background: var(--primary);
+            color: var(--bg-white);
+            padding: 18px;
+            font-weight: 700;
+        }
+
+        .fee-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .fee-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .doc-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 40px;
+            padding: 80px 40px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.02);
+            max-width: 1200px;
+        }
+
+        .doc-section-bg-icon {
+            position: absolute;
+            font-size: 350px;
+            opacity: 0.02;
+            right: -50px;
+            bottom: -50px;
+            transform: rotate(-15deg);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .doc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .doc-list li {
+            padding: 20px 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            font-weight: 600;
+            color: #334155;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-left: 5px solid var(--primary);
+        }
+
+        .doc-list li:nth-child(4n+1) {
+            border-left-color: #ff6b6b;
+        }
+
+        .doc-list li:nth-child(4n+2) {
+            border-left-color: #4f46e5;
+        }
+
+        .doc-list li:nth-child(4n+3) {
+            border-left-color: #00cae3;
+        }
+
+        .doc-list li:nth-child(4n+4) {
+            border-left-color: #f9a826;
+        }
+
+        .doc-list li:hover {
+            transform: translateX(10px) translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+
+        .doc-list li i {
+            font-size: 22px;
+            margin-right: 18px;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .doc-list li:nth-child(4n+1) i {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .doc-list li:nth-child(4n+2) i {
+            color: #4f46e5;
+            background: rgba(79, 70, 229, 0.1);
+        }
+
+        .doc-list li:nth-child(4n+3) i {
+            color: #00bcbc;
+            background: rgba(0, 210, 255, 0.1);
+        }
+
+        .doc-list li:nth-child(4n+4) i {
+            color: #e68a00;
+            background: rgba(249, 168, 38, 0.1);
+        }
+
+        .doc-list li:hover i {
+            transform: scale(1.15) rotate(8deg);
+            border-radius: 50%;
+        }
+
+        .enquiry-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.9)), linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: padding-box, border-box;
+            border: 4px solid transparent;
+            padding: 50px;
+            border-radius: var(--radius-fluid);
+            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.15), 0 10px 20px rgba(236, 72, 153, 0.1);
+            transition: var(--transition);
+        }
+
+        .enquiry-form:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 60px rgba(79, 70, 229, 0.25), 0 20px 40px rgba(236, 72, 153, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(79, 70, 229, 0.15);
+            /* Light indigo border */
+            background: rgba(79, 70, 229, 0.03);
+            /* Subtle colorful tint */
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            color: var(--primary-dark);
+            transition: var(--transition);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .form-group input:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            background: rgba(79, 70, 229, 0.06);
+            border-color: var(--primary-light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: var(--bg-white);
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 5px rgba(236, 72, 153, 0.15);
+            /* Pink glow */
+            transform: translateY(-2px);
+        }
+
+
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--bg-white);
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-glow);
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.4);
+            filter: brightness(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .doc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .doc-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="site-header" class="site-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="SPIC Logo">
+                        <div class="school-name">
+                            <h1 id="school-title">SARDAR PATEL INTER COLLEGE</h1>
+                            <p id="school-address">Sikaron Koraon, Prayagraj 212306</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 011-12345678</p>
+                        <p><i class="fas fa-envelope"></i> info@spic.ac.in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html" class="active">Admissions</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 150px 0 80px; text-align: center; border-radius: 0 0 40px 40px;">
+        <div class="container">
+            <h1 style="font-size: 48px; margin-bottom: 15px;">Admissions</h1>
+            <p>Home / Admissions</p>
+        </div>
+    </section>
+
+    <!-- Important Dates -->
+    <section class="admission-section">
+        <div class="container">
+            <div
+                style="background: linear-gradient(135deg, var(--secondary), #ff6b6b); color: var(--bg-white); padding: 40px; border-radius: var(--radius-fluid); text-align: center; margin-bottom: 40px; box-shadow: var(--shadow-glow);">
+                <h2 style="font-size: 36px; font-weight: 900; margin-bottom: 10px;">📢 Admissions Open for Academic Year
+                </h2>
+                <p style="font-size: 20px; font-weight: 500; opacity: 0.9;">Limited Seats Available | Apply Now</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process -->
+    <section class="admission-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">Step-by-Step <span
+                    style="color: var(--secondary);">Admission Process</span></h2>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number"><i class="fas fa-edit"></i></div>
+                    <h3>1. Registration</h3>
+                    <p>Fill the registration form online or collect from school</p>
+                </div>
+                <div class="step">
+                    <div class="step-number"><i class="fas fa-users"></i></div>
+                    <h3>2. Interaction</h3>
+                    <p>Student-Parent interaction with Principal</p>
+                </div>
+                <div class="step">
+                    <div class="step-number"><i class="fas fa-file-signature"></i></div>
+                    <h3>3. Verification</h3>
+                    <p>Submit & verify all required documents</p>
+                </div>
+                <div class="step">
+                    <div class="step-number"><i class="fas fa-rupee-sign"></i></div>
+                    <h3>4. Fee Payment</h3>
+                    <p>Pay admission fee to confirm seat</p>
+                </div>
+                <div class="step">
+                    <div class="step-number"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>5. Confirmed</h3>
+                    <p>Get your child's admission confirmed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Criteria
+    <section class="admission-section" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Eligibility Criteria (Age as on 31st March 2025)</h2>
+
+            <table class="fee-table">
+                <tr>
+                    <th>Class</th>
+                    <th>Minimum Age</th>
+                    <th>Maximum Age</th>
+                </tr>
+                <tr>
+                    <td>Playgroup</td>
+                    <td>2+ years</td>
+                    <td>3 years</td>
+                </tr>
+                <tr>
+                    <td>Nursery</td>
+                    <td>3+ years</td>
+                    <td>4 years</td>
+                </tr>
+                <tr>
+                    <td>KG</td>
+                    <td>4+ years</td>
+                    <td>5 years</td>
+                </tr>
+                <tr>
+                    <td>Class 1</td>
+                    <td>5+ years</td>
+                    <td>6 years</td>
+                </tr>
+                <tr>
+                    <td>Class 2</td>
+                    <td>6+ years</td>
+                    <td>7 years</td>
+                </tr>
+                <tr>
+                    <td>Class 3</td>
+                    <td>7+ years</td>
+                    <td>8 years</td>
+                </tr>
+                <tr>
+                    <td colspan="3">For higher classes, eligibility based on previous class performance</td>
+                </tr>
+            </table>
+        </div>
+    </section> -->
+
+    <!-- Documents Required -->
+    <section class="admission-section" style="padding: 0;">
+        <div class="container">
+            <div class="doc-section">
+                <i class="fas fa-folder-open doc-section-bg-icon"></i>
+                <h2 class="section-title"
+                    style="text-align: center; margin-bottom: 40px; position: relative; z-index: 1;">Essential <span
+                        style="color: var(--primary);">Documents</span> Required</h2>
+
+                <ul class="doc-list">
+                    <li><i class="fas fa-baby"></i> Birth Certificate (Original + 2 copies)</li>
+                    <li><i class="fas fa-id-card"></i> Aadhar Card (Child)</li>
+                    <li><i class="fas fa-id-badge"></i> Aadhar Card (Parents)</li>
+                    <li><i class="fas fa-camera-retro"></i> Passport size photos (6 copies)</li>
+                    <li><i class="fas fa-file-alt"></i> Previous School Report Card</li>
+                    <li><i class="fas fa-exchange-alt"></i> Transfer Certificate (if applicable)</li>
+                    <li><i class="fas fa-home"></i> Address Proof</li>
+                    <li><i class="fas fa-tint"></i> Blood Group Report</li>
+                    <li><i class="fas fa-notes-medical"></i> Medical Certificate</li>
+                    <li><i class="fas fa-syringe"></i> Immunization Record</li>
+                    <li><i class="fas fa-certificate"></i> Caste Certificate (if applicable)</li>
+                    <li><i class="fas fa-file-invoice-dollar"></i> Income Certificate (for scholarship)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fee Structure -->
+    <section class="admission-section" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Fee Structure </h2>
+
+            <table class="fee-table">
+                <tr>
+                    <th>Class</th>
+                    <th>Registration Fee</th>
+                    <th>Admission Fee (One Time)</th>
+                    <th>Tuition Fee (Monthly)</th>
+                    <th>Annual Charges</th>
+                </tr>
+                <!-- <tr>
+                    <td>Nursery - KG</td>
+                    <td>₹500</td>
+                    <td>₹5,000</td>
+                    <td>₹2,500</td>
+                    <td>₹3,000</td>
+                </tr>
+                <tr>
+                    <td>Class 1 - 5</td>
+                    <td>₹500</td>
+                    <td>₹5,000</td>
+                    <td>₹3,000</td>
+                    <td>₹3,500</td>
+                </tr> -->
+                <tr>
+                    <td>Class 6 - 8</td>
+                    <td>₹500</td>
+                    <td>₹5,000</td>
+                    <td>₹3,500</td>
+                    <td>₹4,000</td>
+                </tr>
+                <tr>
+                    <td>Class 9 - 10</td>
+                    <td>₹500</td>
+                    <td>₹5,000</td>
+                    <td>₹4,000</td>
+                    <td>₹4,500</td>
+                </tr>
+                <tr>
+                    <td>Class 11 - 12</td>
+                    <td>₹500</td>
+                    <td>₹5,000</td>
+                    <td>₹4,500</td>
+                    <td>₹5,000</td>
+                </tr>
+            </table>
+
+            <p style="margin-top: 20px;"><strong>Note:</strong> Transport fee extra as per route (₹800 - ₹1,500 per
+                month)</p>
+        </div>
+    </section>
+
+    <!-- Online Enquiry Form -->
+    <section class="admission-section">
+        <div class="container">
+            <h2 class="section-title">Admission Enquiry Form</h2>
+
+            <form class="enquiry-form" onsubmit="return submitEnquiry(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Student's Full Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Birth *</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Class Applying For *</label>
+                        <select required>
+                            <option value="">Select Class</option>
+                            <option>Nursery</option>
+                            <option>KG</option>
+                            <option>Class 1</option>
+                            <option>Class 2</option>
+                            <option>Class 3</option>
+                            <option>Class 4</option>
+                            <option>Class 5</option>
+                            <option>Class 6</option>
+                            <option>Class 7</option>
+                            <option>Class 8</option>
+                            <option>Class 9</option>
+                            <option>Class 10</option>
+                            <option>Class 11 (Science)</option>
+                            <option>Class 11 (Commerce)</option>
+                            <option>Class 11 (Humanities)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Previous School</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Father's Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mother's Name *</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Address *</label>
+                    <textarea rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" style="width: 100%;">Submit Enquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Sardar Patel Inter College</h4>
+                    <p>Sikaron Koraon,<br>Prayagraj 212306</p>
+                    <p><i class="fas fa-phone"></i> 011-12345678</p>
+                    <p><i class="fas fa-envelope"></i> info@spic.ac.in</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Sardar Patel Inter College. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function submitEnquiry(event) {
+            event.preventDefault();
+            alert('Thank you for your enquiry! Our admission team will contact you soon.');
+            event.target.reset();
+            return false;
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
