@@ -10,6 +10,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Preconnect to external DNS -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <style>
+        /* Home Page Specific Video Alignment & Scaling Fix */
+        .video-showcase .video-wrapper {
+            max-width: 100%;
+            margin: 0 auto;
+            background: #000;
+        }
+
+        .school-video {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important; /* Prevents video from being cut off */
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .video-showcase .video-card {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                padding: 40px 20px !important;
+            }
+
+            .video-showcase .video-wrapper {
+                max-width: 100%;
+                margin-bottom: 25px;
+            }
+
+            .video-showcase .video-stats {
+                justify-content: center !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
