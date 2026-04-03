@@ -1320,7 +1320,8 @@ footer {
 /* Video Showcase Section - Vibrant & Dynamic */
 .video-showcase {
     padding: 140px 0;
-    background: #0f172a; /* Deep slate background for contrast */
+    background: #0f172a;
+    /* Deep slate background for contrast */
     position: relative;
     overflow: hidden;
     color: var(--bg-white);
@@ -1369,10 +1370,21 @@ footer {
 }
 
 @keyframes blobFloat {
-    0% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(40px, -60px) scale(1.1); }
-    66% { transform: translate(-30px, 50px) scale(0.9); }
-    100% { transform: translate(0, 0) scale(1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(40px, -60px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-30px, 50px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
 }
 
 .video-card {
@@ -1431,7 +1443,7 @@ footer {
 .overlay-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     z-index: 2;
 }
 
@@ -1453,10 +1465,12 @@ footer {
     font-size: 32px;
     z-index: 3;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
-.play-button i { margin-left: 6px; }
+.play-button i {
+    margin-left: 6px;
+}
 
 .video-wrapper:hover .play-button {
     background: var(--bg-white);
@@ -1538,7 +1552,7 @@ img {
     .container {
         padding: 0 24px;
     }
-    
+
     .stats-grid,
     .facilities-grid,
     .program-grid,
@@ -1582,13 +1596,14 @@ img {
 /* Mobile Devices Optimization */
 @media (max-width: 768px) {
     body {
-        padding-top: 100px; /* Reduced for mobile */
+        padding-top: 100px;
+        /* Reduced for mobile */
     }
 
     /* Sticky Header Fixes */
     .site-header {
         background: white;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .header-top {
@@ -1599,7 +1614,8 @@ img {
 
     .header-content {
         justify-content: center !important;
-        padding-left: 50px; /* Space for menu-toggle */
+        padding-left: 50px;
+        /* Space for menu-toggle */
         gap: 5px !important;
     }
 
@@ -1633,7 +1649,7 @@ img {
         background: white !important;
         color: var(--primary-dark) !important;
         border: 1px solid var(--border-color) !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
         z-index: 10000 !important;
     }
 
@@ -1653,7 +1669,7 @@ img {
         padding: 90px 20px 40px !important;
         border-radius: 0 !important;
         border: none !important;
-        box-shadow: 15px 0 40px rgba(0,0,0,0.2) !important;
+        box-shadow: 15px 0 40px rgba(0, 0, 0, 0.2) !important;
         z-index: 1001 !important;
         transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), left 0.4s ease !important;
         overflow-y: auto;
@@ -1862,4 +1878,149 @@ img {
     .slide-content h2 {
         font-size: 22px !important;
     }
-}
+}
+
+/* --- Mobile Responsive Fixes --- */
+@media (max-width: 768px) {
+
+    /* Remove horizontal scrolling issues */
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100%;
+    }
+
+    /* Convert all grid layouts to 1 column on mobile */
+    .stats-grid,
+    .staff-grid,
+    .gallery-grid,
+    .program-grid,
+    .contact-grid,
+    .mv-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Reduce hero section height for mobile screens */
+    .hero {
+        height: max-content !important;
+        min-height: 50vh !important;
+        padding: 40px 0 !important;
+    }
+
+    /* Adjust font sizes for headings and text on small devices */
+    h1,
+    .hero-title {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+    }
+
+    h2,
+    .section-title {
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+    }
+
+    h3 {
+        font-size: 20px !important;
+    }
+
+    p,
+    span,
+    li,
+    a {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Make forms single column on mobile */
+    .form-row,
+    form {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .form-group,
+    input,
+    textarea,
+    select {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Make tables scrollable horizontally */
+    table,
+    .table-container,
+    .table-responsive {
+        display: block !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Ensure images are responsive */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* ===== Improved Facilities Mobile Layout ===== */
+@media (max-width: 768px) {
+  .facilities-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    padding: 10px 0 !important;
+  }
+
+  .facility-card {
+    width: 100% !important;
+    padding: 30px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .facility-card h3 {
+    font-size: 22px !important;
+    margin-bottom: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  .facility-card p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    color: var(--text-muted) !important;
+  }
+}
+
+/* ==========================================================
+   Performance Optimizations
+   ========================================================== */
+
+/* Prevent Layout Shifts with Aspect Ratio */
+.logo img { aspect-ratio: 1/1; }
+.hero img { aspect-ratio: 16/9; width: 100%; height: auto; object-fit: cover; }
+.about-image img { aspect-ratio: 3/2; width: 100%; height: auto; object-fit: cover; }
+.thumbnail-img { aspect-ratio: 16/9; width: 100%; height: auto; object-fit: cover; }
+.principal-img img { aspect-ratio: 4/5; width: 100%; height: auto; object-fit: cover; }
+
+/* Content Visibility for Rendering Performance */
+.facilities, 
+.video-showcase, 
+.notice-events, 
+.principal-message, 
+footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
+}
+
+/* Hardware Acceleration */
+.hero, .about-home, .facilities, .video-showcase {
+    will-change: transform, opacity;
+}
+
+img {
+    content-visibility: auto;
+}

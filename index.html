@@ -8,6 +8,8 @@
     <link rel="icon" type="image/x-icon" sizes="512x512" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Preconnect to external DNS -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 </head>
 
 <body>
@@ -17,7 +19,7 @@
             <div class="container">
                 <div class="header-content">
                     <div class="logo">
-                        <img src="images/logo.png" alt="SPIC Logo">
+                        <img src="images/logo.png" alt="SPIC Logo" width="80" height="80">
                         <div class="school-name">
                             <h1 id="school-title">SARDAR PATEL INTER COLLEGE</h1>
                             <p id="school-address">Sikaron Koraon, Prayagraj 212306</p>
@@ -44,223 +46,225 @@
         </nav>
     </header>
 
-    <!-- Hero Slider -->
-    <section class="hero">
-        <div class="slider">
-            <div class="slide slide-left active">
-                <img src="images/school.png" alt="School Building">
-                <div class="slide-content">
-                    <h2>Welcome to Sardar Patel Inter College</h2>
-                    <p>Excellence in Education Since 1985</p>
-                    <a href="admissions.html" class="btn">Admissions Open</a>
-                </div>
-            </div>
-            <div class="slide slide-right">
-                <img src="images/school2.png" alt="School Entrance Gate">
-                <div class="slide-content">
-                    <h2>A Gateway to Excellence</h2>
-                    <p>Step into a world of knowledge and opportunity</p>
-                    <a href="about.html" class="btn">Discover More</a>
-                </div>
-            </div>
-            <div class="slide slide-top">
-                <img src="images/school3.png" alt="School Entrance Gate">
-                <div class="slide-content">
-                    <h2>A Gateway to Excellence</h2>
-                    <p>Step into a world of knowledge and opportunity</p>
-                    <a href="about.html" class="btn">Discover More</a>
-                </div>
-            </div>
-            <div class="slide slide-bottom">
-                <img src="images/school4.png" alt="School Entrance Gate">
-                <div class="slide-content">
-                    <h2>A Gateway to Excellence</h2>
-                    <p>Step into a world of knowledge and opportunity</p>
-                    <a href="about.html" class="btn">Discover More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Stats -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>39+</h3>
-                    <p>Years of Excellence</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3>1200+</h3>
-                    <p>Students</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>50+</h3>
-                    <p>Teachers</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-trophy"></i>
-                    <h3>25+</h3>
-                    <p>Awards</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-home">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2>Welcome to <span></span>Our School</span></h2>
-                    <p>Sardar Patel Inter College, established in 1985, is one of the most prestigious educational
-                        institutions in Koraon Prayagraj. We provide quality education with modern facilities while
-                        maintaining
-                        traditional values.</p>
-                    <p>Our mission is to nurture young minds and develop them into responsible citizens who can
-                        contribute positively to society.</p>
-                    <a href="about.html" class="btn-secondary">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="about-image collage">
-                    <img src="images/campus1.png" alt="Campus View 1" class="img-1">
-                    <img src="images/campus2.png" alt="Campus View 2" class="img-2">
-                    <img src="images/campus3.png" alt="Campus View 3" class="img-3">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Facilities Section -->
-    <section class="facilities">
-        <div class="container">
-            <h2 class="section-title">Our Facilities</h2>
-            <div class="facilities-grid">
-                <div class="facility-card">
-                    <i class="fas fa-laptop"></i>
-                    <h3>Smart Classrooms</h3>
-                    <p>All classrooms equipped with smart boards and digital learning tools</p>
-                </div>
-                <div class="facility-card">
-                    <i class="fas fa-book"></i>
-                    <h3>Digital Library</h3>
-                    <p>Well-stocked library with 5000+ books and digital resources</p>
-                </div>
-                <div class="facility-card">
-                    <i class="fas fa-flask"></i>
-                    <h3>Science Labs</h3>
-                    <p>Fully equipped Physics, Chemistry, and Biology labs</p>
-                </div>
-                <div class="facility-card">
-                    <i class="fas fa-futbol"></i>
-                    <h3>Sports Complex</h3>
-                    <p>Playground, basketball court, and indoor games facility</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Showcase Section -->
-    <section class="video-showcase">
-        <div class="video-blobs">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
-        </div>
-        <div class="container">
-            <h2 class="section-title">Video Presentation</h2>
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <video id="promo-video" class="school-video" loop muted playsinline controls>
-                        <source src="video/school_video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay" id="video-overlay" onclick="playPromoVideo()">
-                        <img src="images/campus1.png" alt="Video Thumbnail" class="thumbnail-img">
-                        <div class="overlay-bg"></div>
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
+    <main id="main-content">
+        <!-- Hero Slider -->
+        <section class="hero">
+            <div class="slider">
+                <div class="slide slide-left active">
+                    <img src="images/school.png" alt="School Building" fetchpriority="high" loading="eager" width="1920" height="1080">
+                    <div class="slide-content">
+                        <h2>Welcome to Sardar Patel Inter College</h2>
+                        <p>Excellence in Education Since 1985</p>
+                        <a href="admissions.html" class="btn">Admissions Open</a>
                     </div>
                 </div>
-                <div class="video-content">
-                    <div class="vibrant-tag">Vibrant Campus</div>
-                    <h3>Experience Our Dynamic Life</h3>
-                    <p>Take a glimpse into our state-of-the-art infrastructure, spectacular school events, and the
-                        remarkable achievements of our students. We create an environment where excellence thrives.</p>
-                    <div class="video-stats">
-                        <div class="v-stat">
-                            <span>50+</span>
-                            <p>Events</p>
-                        </div>
-                        <div class="v-stat">
-                            <span>100%</span>
-                            <p>Activity</p>
-                        </div>
+                <div class="slide slide-right">
+                    <img src="images/school2.png" alt="School Entrance Gate" loading="lazy" decoding="async" width="1920" height="1080">
+                    <div class="slide-content">
+                        <h2>A Gateway to Excellence</h2>
+                        <p>Step into a world of knowledge and opportunity</p>
+                        <a href="about.html" class="btn">Discover More</a>
+                    </div>
+                </div>
+                <div class="slide slide-top">
+                    <img src="images/school3.png" alt="School Entrance Gate" loading="lazy" decoding="async" width="1920" height="1080">
+                    <div class="slide-content">
+                        <h2>A Gateway to Excellence</h2>
+                        <p>Step into a world of knowledge and opportunity</p>
+                        <a href="about.html" class="btn">Discover More</a>
+                    </div>
+                </div>
+                <div class="slide slide-bottom">
+                    <img src="images/school4.png" alt="School Entrance Gate" loading="lazy" decoding="async" width="1920" height="1080">
+                    <div class="slide-content">
+                        <h2>A Gateway to Excellence</h2>
+                        <p>Step into a world of knowledge and opportunity</p>
+                        <a href="about.html" class="btn">Discover More</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Notice Board & Events -->
-    <section class="notice-events">
-        <div class="container">
-            <div class="notice-grid">
-                <div class="notice-board">
-                    <h3><i class="fas fa-bullhorn"></i> Notice Board</h3>
-                    <ul class="notice-list">
-                        <li><span class="date">31 Oct</span> - Annual Day Function on 25th March</li>
-                        <li><span class="date">20 May</span> - Summer Break from 20th May</li>
-                        <li><span class="date">5 Apr</span> - Parent-Teacher Meeting on 5th Apr</li>
-                        <li><span class="date">1 Apr</span> - Admissions Open</li>
-                        <li><span class="date">25 Feb</span> - Sports Week from 10th March</li>
-                    </ul>
-                    <a href="#" class="view-all">View All Notices <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="upcoming-events">
-                    <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
-                    <ul class="events-list">
-                        <li>
-                            <div class="event-date">31 Oct</div>
-                            <div class="event-details">
-                                <h4>Annual Day Celebration</h4>
-                                <p>School Campus, 5:00 PM</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="event-date">5 Apr</div>
-                            <div class="event-details">
-                                <h4>Parent-Teacher Meeting</h4>
-                                <p>Respective Classrooms, 9:00 AM</p>
-                            </div>
-                        </li>
-                    </ul>
+        <!-- Quick Stats -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>39+</h3>
+                        <p>Years of Excellence</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <h3>1200+</h3>
+                        <p>Students</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>50+</h3>
+                        <p>Teachers</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-trophy"></i>
+                        <h3>25+</h3>
+                        <p>Awards</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Principal's Message -->
-    <section class="principal-message">
-        <div class="container">
-            <div class="principal-grid">
-                <div class="principal-img">
-                    <img src="images/principal.png" alt="Principal">
-                </div>
-                <div class="principal-content">
-                    <h2>Principal's Message</h2>
-                    <p>"At Sardar Patel Inter College, we believe in nurturing not just academic excellence but also
-                        character building. Our aim is to create responsible citizens who will contribute positively to
-                        society."</p>
-                    <h4>- Dr. Awadhesh Kumar Singh</h4>
-                    <p class="designation">Principal, Sardar Patel Inter College</p>
+        <!-- About Section -->
+        <section class="about-home">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>Welcome to <span></span>Our School</span></h2>
+                        <p>Sardar Patel Inter College, established in 1985, is one of the most prestigious educational
+                            institutions in Koraon Prayagraj. We provide quality education with modern facilities while
+                            maintaining
+                            traditional values.</p>
+                        <p>Our mission is to nurture young minds and develop them into responsible citizens who can
+                            contribute positively to society.</p>
+                        <a href="about.html" class="btn-secondary">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="about-image collage">
+                        <img src="images/campus1.png" alt="Campus View 1" class="img-1" loading="lazy" decoding="async" width="600" height="400">
+                        <img src="images/campus2.png" alt="Campus View 2" class="img-2" loading="lazy" decoding="async" width="600" height="400">
+                        <img src="images/campus3.png" alt="Campus View 3" class="img-3" loading="lazy" decoding="async" width="600" height="400">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Facilities Section -->
+        <section class="facilities">
+            <div class="container">
+                <h2 class="section-title">Our Facilities</h2>
+                <div class="facilities-grid">
+                    <div class="facility-card">
+                        <i class="fas fa-laptop"></i>
+                        <h3>Smart Classrooms</h3>
+                        <p>All classrooms equipped with smart boards and digital learning tools</p>
+                    </div>
+                    <div class="facility-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Digital Library</h3>
+                        <p>Well-stocked library with 5000+ books and digital resources</p>
+                    </div>
+                    <div class="facility-card">
+                        <i class="fas fa-flask"></i>
+                        <h3>Science Labs</h3>
+                        <p>Fully equipped Physics, Chemistry, and Biology labs</p>
+                    </div>
+                    <div class="facility-card">
+                        <i class="fas fa-futbol"></i>
+                        <h3>Sports Complex</h3>
+                        <p>Playground, basketball court, and indoor games facility</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Showcase Section -->
+        <section class="video-showcase">
+            <div class="video-blobs">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+                <div class="blob blob-3"></div>
+            </div>
+            <div class="container">
+                <h2 class="section-title">Video Presentation</h2>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video id="promo-video" class="school-video" loop muted playsinline controls preload="none">
+                            <source src="video/school_video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay" id="video-overlay" onclick="playPromoVideo()">
+                            <img src="images/campus1.png" alt="Video Thumbnail" class="thumbnail-img" loading="lazy" decoding="async" width="1280" height="720">
+                            <div class="overlay-bg"></div>
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <div class="vibrant-tag">Vibrant Campus</div>
+                        <h3>Experience Our Dynamic Life</h3>
+                        <p>Take a glimpse into our state-of-the-art infrastructure, spectacular school events, and the
+                            remarkable achievements of our students. We create an environment where excellence thrives.</p>
+                        <div class="video-stats">
+                            <div class="v-stat">
+                                <span>50+</span>
+                                <p>Events</p>
+                            </div>
+                            <div class="v-stat">
+                                <span>100%</span>
+                                <p>Activity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notice Board & Events -->
+        <section class="notice-events">
+            <div class="container">
+                <div class="notice-grid">
+                    <div class="notice-board">
+                        <h3><i class="fas fa-bullhorn"></i> Notice Board</h3>
+                        <ul class="notice-list">
+                            <li><span class="date">31 Oct</span> - Annual Day Function on 25th March</li>
+                            <li><span class="date">20 May</span> - Summer Break from 20th May</li>
+                            <li><span class="date">5 Apr</span> - Parent-Teacher Meeting on 5th Apr</li>
+                            <li><span class="date">1 Apr</span> - Admissions Open</li>
+                            <li><span class="date">25 Feb</span> - Sports Week from 10th March</li>
+                        </ul>
+                        <a href="#" class="view-all">View All Notices <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="upcoming-events">
+                        <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
+                        <ul class="events-list">
+                            <li>
+                                <div class="event-date">31 Oct</div>
+                                <div class="event-details">
+                                    <h4>Annual Day Celebration</h4>
+                                    <p>School Campus, 5:00 PM</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="event-date">5 Apr</div>
+                                <div class="event-details">
+                                    <h4>Parent-Teacher Meeting</h4>
+                                    <p>Respective Classrooms, 9:00 AM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Principal's Message -->
+        <section class="principal-message">
+            <div class="container">
+                <div class="principal-grid">
+                    <div class="principal-img">
+                        <img src="images/principal.png" alt="Principal" loading="lazy" decoding="async" width="400" height="500">
+                    </div>
+                    <div class="principal-content">
+                        <h2>Principal's Message</h2>
+                        <p>"At Sardar Patel Inter College, we believe in nurturing not just academic excellence but also
+                            character building. Our aim is to create responsible citizens who will contribute positively to
+                            society."</p>
+                        <h4>- Dr. Awadhesh Kumar Singh</h4>
+                        <p class="designation">Principal, Sardar Patel Inter College</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -287,7 +291,7 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.youtube.com/@spickoraonprayagraj" target="_blank"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
@@ -298,7 +302,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

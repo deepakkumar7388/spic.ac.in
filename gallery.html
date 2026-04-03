@@ -354,172 +354,174 @@
         </nav>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header"
-        style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 150px 0 80px; text-align: center; border-radius: 0 0 40px 40px;">
-        <div class="container">
-            <h1 style="font-size: 48px; margin-bottom: 15px;">Photo Gallery</h1>
-            <p>Home / Gallery</p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery-section">
-        <div class="container">
-            <!-- Filter Buttons -->
-            <div class="gallery-filter">
-                <button class="filter-btn active" onclick="filterGallery('all')">All</button>
-                <button class="filter-btn" onclick="filterGallery('campus')">Campus</button>
-                <button class="filter-btn" onclick="filterGallery('events')">Events</button>
-                <button class="filter-btn" onclick="filterGallery('sports')">Sports</button>
-                <button class="filter-btn" onclick="filterGallery('cultural')">Cultural</button>
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header"
+            style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 150px 0 80px; text-align: center; border-radius: 0 0 40px 40px;">
+            <div class="container">
+                <h1 style="font-size: 48px; margin-bottom: 15px;">Photo Gallery</h1>
+                <p>Home / Gallery</p>
             </div>
+        </section>
 
-            <!-- Gallery Grid -->
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Campus Photos -->
-                <div class="gallery-item" data-category="campus"
-                    onclick="openLightbox('images/schoolbuilding.png', 'School Building - Main Block')">
-                    <img src="images/schoolbuilding.png" alt="School Building">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">School Building - Main Block</span>
-                    </div>
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <!-- Filter Buttons -->
+                <div class="gallery-filter">
+                    <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+                    <button class="filter-btn" onclick="filterGallery('campus')">Campus</button>
+                    <button class="filter-btn" onclick="filterGallery('events')">Events</button>
+                    <button class="filter-btn" onclick="filterGallery('sports')">Sports</button>
+                    <button class="filter-btn" onclick="filterGallery('cultural')">Cultural</button>
                 </div>
 
-                <div class="gallery-item" data-category="campus"
-                    onclick="openLightbox('images/library.png', 'Library')">
-                    <img src="images/library.png" alt="Library">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">School Library</span>
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Campus Photos -->
+                    <div class="gallery-item" data-category="campus"
+                        onclick="openLightbox('images/schoolbuilding.png', 'School Building - Main Block')">
+                        <img src="images/schoolbuilding.png" alt="School Building" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">School Building - Main Block</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="campus"
-                    onclick="openLightbox('images/computerLab.png', 'Computer Lab')">
-                    <img src="images/computerLab.png" alt="Computer Lab">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Computer Lab</span>
+                    <div class="gallery-item" data-category="campus"
+                        onclick="openLightbox('images/library.png', 'Library')">
+                        <img src="images/library.png" alt="Library" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">School Library</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="campus"
-                    onclick="openLightbox('images/scienceLab.png', 'Science Lab')">
-                    <img src="images/scienceLab.png" alt="Science Lab">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Science Laboratory</span>
+                    <div class="gallery-item" data-category="campus"
+                        onclick="openLightbox('images/computerLab.png', 'Computer Lab')">
+                        <img src="images/computerLab.png" alt="Computer Lab" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Computer Lab</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Events Photos -->
-                <div class="gallery-item" data-category="events"
-                    onclick="openLightbox('images/anualDay.png', 'Annual Day 2024')">
-                    <img src="images/anualDay.png" alt="Annual Day">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Annual Day 2024</span>
+                    <div class="gallery-item" data-category="campus"
+                        onclick="openLightbox('images/scienceLab.png', 'Science Lab')">
+                        <img src="images/scienceLab.png" alt="Science Lab" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Science Laboratory</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="events"
-                    onclick="openLightbox('images/independence.png', 'Independence Day Celebration')">
-                    <img src="images/independence.png" alt="Independence Day">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Independence Day</span>
+                    <!-- Events Photos -->
+                    <div class="gallery-item" data-category="events"
+                        onclick="openLightbox('images/anualDay.png', 'Annual Day 2024')">
+                        <img src="images/anualDay.png" alt="Annual Day" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Annual Day 2024</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="events"
-                    onclick="openLightbox('images/teacher\'sDay.png', 'Teacher\'s Day')">
-                    <img src="images/teacher'sDay.png" alt="Teacher's Day">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Teacher's Day 2024</span>
+                    <div class="gallery-item" data-category="events"
+                        onclick="openLightbox('images/independence.png', 'Independence Day Celebration')">
+                        <img src="images/independence.png" alt="Independence Day" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Independence Day</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="events"
-                    onclick="openLightbox('images/republicDay.png', 'Republic Day Parade')">
-                    <img src="images/republicDay.png" alt="Republic Day">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Republic Day 2024</span>
+                    <div class="gallery-item" data-category="events"
+                        onclick="openLightbox('images/teacher\'sDay.png', 'Teacher\'s Day')">
+                        <img src="images/teacher'sDay.png" alt="Teacher's Day" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Teacher's Day 2024</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Sports Photos -->
-                <div class="gallery-item" data-category="sports"
-                    onclick="openLightbox('images/sport\'sDay.png', 'Sports Day - Running Race')">
-                    <img src="images/sport'sDay.png" alt="Sports Day">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Annual Sports Day</span>
+                    <div class="gallery-item" data-category="events"
+                        onclick="openLightbox('images/republicDay.png', 'Republic Day Parade')">
+                        <img src="images/republicDay.png" alt="Republic Day" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Republic Day 2024</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="sports"
-                    onclick="openLightbox('images/cricket.png', 'Cricket Match')">
-                    <img src="images/cricket.png" alt="Cricket">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Inter-School Cricket</span>
+                    <!-- Sports Photos -->
+                    <div class="gallery-item" data-category="sports"
+                        onclick="openLightbox('images/sport\'sDay.png', 'Sports Day - Running Race')">
+                        <img src="images/sport'sDay.png" alt="Sports Day" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Annual Sports Day</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="sports"
-                    onclick="openLightbox('images/yogaDay.png', 'Yoga Day')">
-                    <img src="images/yogaDay.png" alt="Yoga">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">International Yoga Day</span>
+                    <div class="gallery-item" data-category="sports"
+                        onclick="openLightbox('images/cricket.png', 'Cricket Match')">
+                        <img src="images/cricket.png" alt="Cricket" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Inter-School Cricket</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="sports"
-                    onclick="openLightbox('images/scout&Guide.png', 'Scout & Guide')">
-                    <img src="images/scout&Guide.png" alt="Scout & Guide">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Scout & Guide</span>
+                    <div class="gallery-item" data-category="sports"
+                        onclick="openLightbox('images/yogaDay.png', 'Yoga Day')">
+                        <img src="images/yogaDay.png" alt="Yoga" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">International Yoga Day</span>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Cultural Photos -->
-                <div class="gallery-item" data-category="cultural"
-                    onclick="openLightbox('images/diwali.png', 'Diwali Celebration')">
-                    <img src="images/diwali.png" alt="Diwali">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Diwali Celebration</span>
+                    <div class="gallery-item" data-category="sports"
+                        onclick="openLightbox('images/scout&Guide.png', 'Scout & Guide')">
+                        <img src="images/scout&Guide.png" alt="Scout & Guide" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Scout & Guide</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="cultural"
-                    onclick="openLightbox('images/holi.png', 'Holi Celebration')">
-                    <img src="images/holi.png" alt="Holi">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Holi Celebration</span>
+                    <!-- Cultural Photos -->
+                    <div class="gallery-item" data-category="cultural"
+                        onclick="openLightbox('images/diwali.png', 'Diwali Celebration')">
+                        <img src="images/diwali.png" alt="Diwali" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Diwali Celebration</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="cultural"
-                    onclick="openLightbox('images/dance.png', 'Dance Performance')">
-                    <img src="images/dance.png" alt="Dance">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Cultural Dance</span>
+                    <div class="gallery-item" data-category="cultural"
+                        onclick="openLightbox('images/holi.png', 'Holi Celebration')">
+                        <img src="images/holi.png" alt="Holi" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Holi Celebration</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="cultural"
-                    onclick="openLightbox('images/music.png', 'Music Competition')">
-                    <img src="images/music.png" alt="Music">
-                    <div class="gallery-overlay">
-                        <span class="gallery-caption">Music Competition</span>
+                    <div class="gallery-item" data-category="cultural"
+                        onclick="openLightbox('images/dance.png', 'Dance Performance')">
+                        <img src="images/dance.png" alt="Dance" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Cultural Dance</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="cultural"
+                        onclick="openLightbox('images/music.png', 'Music Competition')">
+                        <img src="images/music.png" alt="Music" loading="lazy" decoding="async" width="280" height="280">
+                        <div class="gallery-overlay">
+                            <span class="gallery-caption">Music Competition</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <div class="lightbox-content">
-            <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
-            <img src="" alt="" id="lightboxImg">
-            <div class="lightbox-caption" id="lightboxCaption"></div>
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <div class="lightbox-content">
+                <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+                <img src="" alt="" id="lightboxImg">
+                <div class="lightbox-caption" id="lightboxCaption"></div>
+            </div>
         </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -546,7 +548,7 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.youtube.com/@spickoraonprayagraj" target="_blank"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
@@ -557,49 +559,7 @@
         </div>
     </footer>
 
-    <script>
-        function filterGallery(category) {
-            var items = document.getElementsByClassName('gallery-item');
-            var buttons = document.getElementsByClassName('filter-btn');
-
-            // Update active button
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('active');
-            }
-            event.target.classList.add('active');
-
-            // Filter items
-            for (var i = 0; i < items.length; i++) {
-                if (category === 'all' || items[i].getAttribute('data-category') === category) {
-                    items[i].style.display = 'block';
-                } else {
-                    items[i].style.display = 'none';
-                }
-            }
-        }
-
-        function openLightbox(imgSrc, caption) {
-            var lightbox = document.getElementById('lightbox');
-            var lightboxImg = document.getElementById('lightboxImg');
-            var lightboxCaption = document.getElementById('lightboxCaption');
-
-            lightboxImg.src = imgSrc;
-            lightboxCaption.textContent = caption;
-            lightbox.classList.add('active');
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        // Close lightbox with escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-    </script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

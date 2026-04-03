@@ -184,139 +184,113 @@
         </nav>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header"
-        style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 150px 0 80px; text-align: center; border-radius: 0 0 40px 40px;">
-        <div class="container">
-            <h1 style="font-size: 48px; margin-bottom: 15px;">Contact Us</h1>
-            <p>Home / Contact</p>
-        </div>
-    </section>
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header"
+            style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 150px 0 80px; text-align: center; border-radius: 0 0 40px 40px;">
+            <div class="container">
+                <h1 style="font-size: 48px; margin-bottom: 15px;">Contact Us</h1>
+                <p>Home / Contact</p>
+            </div>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Information -->
-                <div class="contact-info-box">
-                    <h2 style="color: var(--primary); margin-bottom: 30px; font-weight: 900;">Get in Touch</h2>
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info-box">
+                        <h2 style="color: var(--primary); margin-bottom: 30px; font-weight: 900;">Get in Touch</h2>
 
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Address</h3>
-                            <p>Sardar Patel Inter College<br>
-                                Sikaron Koraon<br>
-                                Prayagraj 212306</p>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>Sardar Patel Inter College<br>
+                                    Sikaron Koraon<br>
+                                    Prayagraj 212306</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h3>Phone Numbers</h3>
+                                <p>Office: 011-12345678<br>
+                                    Principal: 011-87654321<br>
+                                    Mobile: +91 98765 43210</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@spic.ac.in<br>
+                                    admissions@spic.ac.in</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Office Hours</h3>
+                                <p>Monday - Friday: 8:00 AM - 3:00 PM<br>
+                                    Saturday: 8:00 AM - 12:00 PM<br>
+                                    Sunday: Closed</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h3>Phone Numbers</h3>
-                            <p>Office: 011-12345678<br>
-                                Principal: 011-87654321<br>
-                                Mobile: +91 98765 43210</p>
-                        </div>
-                    </div>
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h2 style="color: var(--primary); margin-bottom: 30px; font-weight: 900;">Send us a Message</h2>
 
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>info@spic.ac.in<br>
-                                admissions@spic.ac.in</p>
-                        </div>
-                    </div>
+                        <form id="contactForm" onsubmit="return submitForm(event)">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" required>
+                            </div>
 
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Office Hours</h3>
-                            <p>Monday - Friday: 8:00 AM - 3:00 PM<br>
-                                Saturday: 8:00 AM - 12:00 PM<br>
-                                Sunday: Closed</p>
-                        </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Contact Form -->
-                <div class="contact-form">
-                    <h2 style="color: var(--primary); margin-bottom: 30px; font-weight: 900;">Send us a Message</h2>
-
-                    <form id="contactForm" onsubmit="return submitForm(event)">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <h2 class="section-title">Find Us on Map</h2>
+                <div class="map-container">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Sardar+Patel+Inter+College+-+Sikaro+koraon+Prayagraj&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="container">
-            <h2 class="section-title">Find Us on Map</h2>
-            <div class="map-container">
-                <iframe
-                    src="https://maps.google.com/maps?q=Sardar+Patel+Inter+College+-+Sikaro+koraon+Prayagraj&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function submitForm(event) {
-            event.preventDefault();
-
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Simple validation
-            if (!name || !email || !phone || !message) {
-                alert('Please fill in all required fields');
-                return false;
-            }
-
-            // Here you would typically send the data to a server
-            // For now, just show success message
-            alert('Thank you for contacting us! We will get back to you soon.');
-
-            // Reset form
-            document.getElementById('contactForm').reset();
-
-            return false;
-        }
-    </script>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -343,7 +317,7 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.youtube.com/@spickoraonprayagraj" target="_blank"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
@@ -353,7 +327,7 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
