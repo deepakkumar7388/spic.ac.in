@@ -1402,6 +1402,21 @@ footer {
     cursor: pointer;
 }
 
+.school-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+
+
 .video-wrapper::before {
     content: '';
     position: absolute;
@@ -2230,7 +2245,7 @@ img {
             width: 100%;
             height: 100%;
             border: none;
-            object-fit: cover;
+            object-fit: contain;
         }
     
 
